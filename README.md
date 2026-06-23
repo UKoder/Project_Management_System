@@ -153,18 +153,18 @@ The application will run with:
 
 ```
 ┌─────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│    User      │     │    Project      │     │     Task        │
+│    User     │     │    Project      │     │     Task        │
 ├─────────────┤     ├─────────────────┤     ├─────────────────┤
-│ id (PK)     │←──┐ │ id (PK)        │←──┐ │ id (PK)        │
-│ fullName    │   │ │ name           │   │ │ name           │
-│ email (UQ)  │   │ │ description    │   │ │ description    │
-│ password    │   │ │ status         │   │ │ priority       │
-│ createdAt   │   │ │ priority       │   │ │ status         │
-│             │   │ │ startDate      │   │ │ dueDate        │
-│             │   │ │ endDate        │   │ │ createdAt      │
-│             │   │ │ createdAt      │   │ │ projectId (FK) │
-│             │   └─│ userId (FK)    │   └─│ userId (FK)    │
-│             │     │                │     │                │
+│ id (PK)     │←──┐ │ id (PK)         │←──┐ │ id (PK)         │
+│ fullName    │   │ │ name            │   │ │ name            │
+│ email (UQ)  │   │ │ description     │   │ │ description     │
+│ password    │   │ │ status          │   │ │ priority        │
+│ createdAt   │   │ │ priority        │   │ │ status          │
+│             │   │ │ startDate       │   │ │ dueDate         │
+│             │   │ │ endDate         │   │ │ createdAt       │
+│             │   │ │ createdAt       │   │ │ projectId (FK)  │
+│             │   └─│ userId (FK)     │   └─│ userId (FK)     │
+│             │     │                 │     │                 │
 └─────────────┘     └─────────────────┘     └─────────────────┘
 ```
 
