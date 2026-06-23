@@ -138,30 +138,47 @@ const LoginPage = () => {
           align-items: center;
           justify-content: center;
           padding: 2rem;
+          background:
+            radial-gradient(ellipse at 30% 20%, rgba(108, 92, 231, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 80%, rgba(0, 206, 201, 0.05) 0%, transparent 50%),
+            var(--neu-bg);
         }
         .auth-container {
           width: 100%;
           max-width: 26rem;
           padding: 2.5rem;
-          background: var(--bg-card);
-          backdrop-filter: blur(20px);
+          background: var(--gradient-surface);
           border: 1px solid var(--border-color);
           border-radius: var(--radius-xl);
+          box-shadow: var(--neu-convex-lg);
+          position: relative;
+          overflow: hidden;
+        }
+        .auth-container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: var(--gradient-primary);
+          opacity: 0.8;
         }
         .auth-header {
           text-align: center;
           margin-bottom: 2rem;
         }
         .auth-logo {
-          width: 3rem;
-          height: 3rem;
+          width: 3.25rem;
+          height: 3.25rem;
           margin: 0 auto 1rem;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+          background: var(--gradient-primary);
           border-radius: var(--radius-md);
           color: white;
+          box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
         }
         .auth-logo svg {
           width: 1.5rem;
@@ -169,8 +186,9 @@ const LoginPage = () => {
         }
         .auth-header h1 {
           font-size: 1.5rem;
-          font-weight: 700;
+          font-weight: 800;
           margin-bottom: 0.375rem;
+          letter-spacing: -0.02em;
         }
         .auth-header p {
           color: var(--text-muted);
@@ -183,14 +201,14 @@ const LoginPage = () => {
         }
         .auth-footer {
           text-align: center;
-          margin-top: 1.5rem;
+          margin-top: 1.75rem;
           color: var(--text-muted);
           font-size: 0.875rem;
         }
         .auth-footer a {
           color: var(--color-primary-light);
           text-decoration: none;
-          font-weight: 500;
+          font-weight: 600;
         }
         .auth-footer a:hover {
           text-decoration: underline;

@@ -23,10 +23,10 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
 
   return (
     <div
-      className="glass-card animate-fade-in"
+      className="neu-card-flat animate-fade-in"
       style={{
         padding: '1rem 1.25rem',
-        opacity: task.status === 'COMPLETED' ? 0.7 : 1,
+        opacity: task.status === 'COMPLETED' ? 0.65 : 1,
       }}
       id={`task-item-${task.id}`}
     >
@@ -40,7 +40,7 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
             borderRadius: '50%',
             border: task.status === 'COMPLETED'
               ? '2px solid var(--color-success)'
-              : '2px solid var(--border-color-light)',
+              : '2px solid var(--text-muted)',
             background: task.status === 'COMPLETED'
               ? 'var(--color-success)'
               : 'transparent',
@@ -49,7 +49,10 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
             alignItems: 'center',
             justifyContent: 'center',
             flexShrink: 0,
-            transition: 'all 0.2s',
+            transition: 'all 0.25s',
+            boxShadow: task.status === 'COMPLETED'
+              ? '0 2px 8px rgba(0, 184, 148, 0.3)'
+              : 'var(--neu-convex-sm)',
           }}
           title={task.status === 'COMPLETED' ? 'Mark as pending' : 'Mark as completed'}
           id={`complete-task-${task.id}`}
@@ -65,7 +68,7 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
             <span style={{
-              fontWeight: 500,
+              fontWeight: 600,
               fontSize: '0.9375rem',
               color: 'var(--text-primary)',
               textDecoration: task.status === 'COMPLETED' ? 'line-through' : 'none',
@@ -98,7 +101,7 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
           <span style={{
             fontSize: '0.8125rem',
             color: isOverdue ? 'var(--color-danger)' : 'var(--text-muted)',
-            fontWeight: isOverdue ? 600 : 400,
+            fontWeight: isOverdue ? 700 : 500,
             whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',

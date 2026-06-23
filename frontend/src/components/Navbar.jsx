@@ -6,8 +6,8 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate('/login');
   };
 
@@ -64,9 +64,8 @@ const Navbar = () => {
           position: sticky;
           top: 0;
           z-index: 40;
-          background: rgba(15, 23, 42, 0.85);
-          backdrop-filter: blur(20px);
-          border-bottom: 1px solid var(--border-color);
+          background: var(--neu-surface);
+          box-shadow: 0 4px 16px var(--neu-shadow-dark), 0 1px 0 var(--border-color);
         }
         .navbar-container {
           display: flex;
@@ -83,30 +82,32 @@ const Navbar = () => {
           color: var(--text-primary);
         }
         .navbar-logo {
-          width: 2rem;
-          height: 2rem;
+          width: 2.25rem;
+          height: 2.25rem;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+          background: var(--gradient-primary);
           border-radius: var(--radius-sm);
           color: white;
+          box-shadow: 0 4px 12px rgba(108, 92, 231, 0.35);
         }
         .navbar-logo svg {
-          width: 1.1rem;
-          height: 1.1rem;
+          width: 1.15rem;
+          height: 1.15rem;
         }
         .navbar-title {
           font-size: 1.25rem;
-          font-weight: 700;
-          background: linear-gradient(135deg, var(--text-primary), var(--color-primary-light));
+          font-weight: 800;
+          background: var(--gradient-primary);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          letter-spacing: -0.02em;
         }
         .navbar-links {
           display: flex;
-          gap: 0.25rem;
+          gap: 0.375rem;
         }
         .navbar-link {
           display: flex;
@@ -114,19 +115,21 @@ const Navbar = () => {
           gap: 0.5rem;
           padding: 0.5rem 1rem;
           border-radius: var(--radius-md);
-          color: var(--text-secondary);
+          color: var(--text-muted);
           text-decoration: none;
           font-size: 0.875rem;
-          font-weight: 500;
-          transition: all 0.2s;
+          font-weight: 600;
+          transition: all 0.25s;
         }
         .navbar-link:hover {
           color: var(--text-primary);
-          background: var(--bg-glass);
+          background: var(--neu-surface-alt);
+          box-shadow: var(--neu-convex-sm);
         }
         .navbar-link.active {
           color: var(--color-primary-light);
-          background: rgba(99, 102, 241, 0.1);
+          background: rgba(108, 92, 231, 0.12);
+          box-shadow: var(--neu-concave-sm);
         }
         .navbar-link svg {
           width: 1.125rem;
@@ -138,20 +141,21 @@ const Navbar = () => {
           gap: 0.75rem;
         }
         .navbar-avatar {
-          width: 2rem;
-          height: 2rem;
+          width: 2.125rem;
+          height: 2.125rem;
           border-radius: 50%;
-          background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+          background: var(--gradient-accent);
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 0.8rem;
           font-weight: 700;
           color: white;
+          box-shadow: var(--neu-convex-sm);
         }
         .navbar-username {
           font-size: 0.875rem;
-          font-weight: 500;
+          font-weight: 600;
           color: var(--text-secondary);
         }
         @media (max-width: 768px) {

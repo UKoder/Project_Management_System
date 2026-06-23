@@ -23,7 +23,7 @@ A full-stack project management application built with React, Node.js, Express, 
 |---|---|
 | Frontend | React 19 + Vite + Tailwind CSS v4 |
 | Backend | Node.js + Express |
-| Database | MySQL 8 + Prisma ORM |
+| Database | PostgreSQL (Supabase) + Prisma ORM |
 | Auth | JWT (jsonwebtoken) + bcryptjs |
 | DevOps | Docker + Docker Compose |
 
@@ -50,7 +50,6 @@ root/
 │   │   ├── services/        # Business logic
 │   │   └── utils/           # Token & password helpers
 │   ├── prisma/schema.prisma # Database schema
-│   ├── tests/               # Jest unit tests
 │   └── Dockerfile
 ├── frontend/
 │   ├── src/
@@ -70,20 +69,17 @@ root/
 
 ### 1. Database Setup
 
-Create a MySQL database:
-
-```sql
-CREATE DATABASE project_management;
-```
+Set up a [Supabase](https://supabase.com/) project and get your PostgreSQL connection strings. You will need both the transaction pooler URL and the session/direct connection URL.
 
 ### 2. Backend Setup
 
 ```bash
 cd backend
 
-# Copy env file and update DATABASE_URL
+# Copy env file and configure Supabase URLs
 cp .env.example .env
-# Edit .env with your MySQL credentials
+# Edit .env with your Supabase DATABASE_URL and DIRECT_URL
+
 
 # Install dependencies
 npm install
@@ -91,10 +87,11 @@ npm install
 # Generate Prisma client
 npx prisma generate
 
-# Run database migrations
+# Deploy your database schema to Supabase
+npx prisma generate
 npx prisma migrate dev --name init
 
-# Start the server
+# Start the dev server
 npm run dev
 ```
 
@@ -118,17 +115,16 @@ The frontend will run on `http://localhost:5173` with API proxy to the backend.
 
 ## Local Setup (with Docker)
 
+Make sure to set up your `.env` files in both the root folder and `backend/` to include your Supabase connection URLs.
+
 ```bash
-# From the root directory
 docker-compose up --build
 ```
 
-This starts:
-- **MySQL** on port `3306`
-- **Backend API** on port `5000`
-- **Frontend** on port `3000`
-
-Access the app at `http://localhost:3000`.
+The application will run with:
+*   Backend: http://localhost:5000
+*   Frontend: http://localhost:3000
+*   Database: Your remote Supabase instance
 
 ---
 

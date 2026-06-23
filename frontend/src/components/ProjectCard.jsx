@@ -23,7 +23,18 @@ const ProjectCard = ({ project, onEdit, onDelete }) => {
   };
 
   return (
-    <div className="glass-card animate-fade-in" id={`project-card-${project.id}`}>
+    <div className="neu-card animate-fade-in" id={`project-card-${project.id}`} style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Gradient accent bar */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '3px',
+        background: 'var(--gradient-primary)',
+        opacity: 0.7,
+        borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
+      }} />
       <div style={{ padding: '1.5rem' }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '1rem' }}>
@@ -34,9 +45,10 @@ const ProjectCard = ({ project, onEdit, onDelete }) => {
             >
               <h3 style={{
                 fontSize: '1.125rem',
-                fontWeight: 600,
-                marginBottom: '0.375rem',
+                fontWeight: 700,
+                marginBottom: '0.5rem',
                 transition: 'color 0.2s',
+                letterSpacing: '-0.01em',
               }}
               onMouseEnter={(e) => e.target.style.color = 'var(--color-primary-light)'}
               onMouseLeave={(e) => e.target.style.color = 'var(--text-primary)'}
@@ -61,6 +73,7 @@ const ProjectCard = ({ project, onEdit, onDelete }) => {
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
+            lineHeight: 1.6,
           }}>
             {project.description}
           </p>

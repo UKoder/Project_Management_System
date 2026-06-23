@@ -102,9 +102,14 @@ const DashboardPage = () => {
             {/* Two-column layout */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))', gap: '1.5rem' }}>
               {/* Recent Projects */}
-              <div className="glass-card" style={{ padding: '1.5rem' }}>
+              <div className="neu-card" style={{ padding: '1.5rem', position: 'relative', overflow: 'hidden' }}>
+                <div style={{
+                  position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
+                  background: 'var(--gradient-primary)', opacity: 0.6,
+                  borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
+                }} />
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                  <h2 style={{ fontSize: '1.125rem', fontWeight: 600 }}>Recent Projects</h2>
+                  <h2 style={{ fontSize: '1.125rem', fontWeight: 700 }}>Recent Projects</h2>
                   <Link to="/projects" className="btn btn-secondary btn-sm" id="view-all-projects">
                     View All
                   </Link>
@@ -122,29 +127,27 @@ const DashboardPage = () => {
                         <Link
                           key={project.id}
                           to={`/projects/${project.id}`}
+                          className="neu-card-inset"
                           style={{
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
                             padding: '0.75rem 1rem',
-                            borderRadius: 'var(--radius-md)',
-                            background: 'var(--bg-glass)',
-                            border: '1px solid var(--border-color)',
                             textDecoration: 'none',
                             color: 'var(--text-primary)',
-                            transition: 'all 0.2s',
+                            transition: 'all 0.25s',
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.background = 'var(--bg-glass-hover)';
-                            e.currentTarget.style.borderColor = 'var(--border-color-light)';
+                            e.currentTarget.style.boxShadow = 'var(--neu-convex-sm)';
+                            e.currentTarget.style.transform = 'translateY(-1px)';
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.background = 'var(--bg-glass)';
-                            e.currentTarget.style.borderColor = 'var(--border-color)';
+                            e.currentTarget.style.boxShadow = 'var(--neu-concave)';
+                            e.currentTarget.style.transform = 'translateY(0)';
                           }}
                         >
                           <div>
-                            <p style={{ fontWeight: 500, fontSize: '0.9375rem' }}>{project.name}</p>
+                            <p style={{ fontWeight: 600, fontSize: '0.9375rem' }}>{project.name}</p>
                             <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
                               {project._count?.tasks || 0} tasks
                             </p>
@@ -158,8 +161,13 @@ const DashboardPage = () => {
               </div>
 
               {/* Upcoming Tasks */}
-              <div className="glass-card" style={{ padding: '1.5rem' }}>
-                <h2 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '1rem' }}>Upcoming Tasks</h2>
+              <div className="neu-card" style={{ padding: '1.5rem', position: 'relative', overflow: 'hidden' }}>
+                <div style={{
+                  position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
+                  background: 'var(--gradient-accent)', opacity: 0.6,
+                  borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
+                }} />
+                <h2 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '1rem' }}>Upcoming Tasks</h2>
                 {stats.upcomingTasks.length === 0 ? (
                   <div className="empty-state" style={{ padding: '2rem' }}>
                     <p>No upcoming tasks</p>
@@ -171,15 +179,13 @@ const DashboardPage = () => {
                       return (
                         <div
                           key={task.id}
+                          className="neu-card-inset"
                           style={{
                             padding: '0.75rem 1rem',
-                            borderRadius: 'var(--radius-md)',
-                            background: 'var(--bg-glass)',
-                            border: '1px solid var(--border-color)',
                           }}
                         >
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <span style={{ fontWeight: 500, fontSize: '0.9375rem' }}>{task.name}</span>
+                            <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>{task.name}</span>
                             <span className={`badge ${p.class}`}>{p.label}</span>
                           </div>
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '0.375rem' }}>

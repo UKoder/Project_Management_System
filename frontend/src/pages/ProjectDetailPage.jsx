@@ -174,7 +174,7 @@ const ProjectDetailPage = () => {
       <main className="container" style={{ padding: '2rem 1.5rem' }} id="project-detail-page">
         {/* Breadcrumb */}
         <div style={{ marginBottom: '1.5rem' }}>
-          <Link to="/projects" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+          <Link to="/projects" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '0.375rem', fontWeight: 500 }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
             </svg>
@@ -183,28 +183,33 @@ const ProjectDetailPage = () => {
         </div>
 
         {/* Project Header */}
-        <div className="glass-card animate-fade-in" style={{ padding: '2rem', marginBottom: '2rem' }}>
+        <div className="neu-card animate-fade-in" style={{ padding: '2rem', marginBottom: '2rem', position: 'relative', overflow: 'hidden' }}>
+          <div style={{
+            position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
+            background: 'var(--gradient-primary)', opacity: 0.7,
+            borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
+          }} />
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
-                <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>{project.name}</h1>
+                <h1 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.02em' }}>{project.name}</h1>
                 <span className={`badge ${status.class}`}>{status.label}</span>
                 <span className={`badge ${projectPriority.class}`}>{projectPriority.label}</span>
               </div>
               {project.description && (
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9375rem', marginBottom: '1rem', maxWidth: '48rem' }}>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9375rem', marginBottom: '1rem', maxWidth: '48rem', lineHeight: 1.6 }}>
                   {project.description}
                 </p>
               )}
               <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
                 <span>
-                  <strong style={{ color: 'var(--text-secondary)' }}>Start:</strong> {formatDate(project.startDate)}
+                  <strong style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Start:</strong> {formatDate(project.startDate)}
                 </span>
                 <span>
-                  <strong style={{ color: 'var(--text-secondary)' }}>End:</strong> {formatDate(project.endDate)}
+                  <strong style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>End:</strong> {formatDate(project.endDate)}
                 </span>
                 <span>
-                  <strong style={{ color: 'var(--text-secondary)' }}>Tasks:</strong> {tasks.length}
+                  <strong style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Tasks:</strong> {tasks.length}
                 </span>
               </div>
             </div>
@@ -222,7 +227,7 @@ const ProjectDetailPage = () => {
         {/* Tasks Section */}
         <div style={{ marginBottom: '1.5rem' }}>
           <div className="page-header">
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--text-primary)' }}>Tasks</h2>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)' }}>Tasks</h2>
             <button
               className="btn btn-primary"
               onClick={() => { setEditingTask(null); setTaskModalOpen(true); }}
@@ -290,7 +295,7 @@ const ProjectDetailPage = () => {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
             </svg>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--text-secondary)' }}>
               {search || statusFilter || priorityFilter ? 'No tasks match your filters' : 'No tasks yet'}
             </h3>
             <p>{search || statusFilter || priorityFilter ? 'Try adjusting your filters' : 'Add your first task to this project'}</p>

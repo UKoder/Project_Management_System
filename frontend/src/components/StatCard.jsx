@@ -1,29 +1,42 @@
 const StatCard = ({ label, value, icon, color = 'primary', delay = 0 }) => {
   const colorMap = {
-    primary: { bg: 'rgba(99, 102, 241, 0.1)', border: 'rgba(99, 102, 241, 0.2)', text: '#818cf8' },
-    success: { bg: 'rgba(16, 185, 129, 0.1)', border: 'rgba(16, 185, 129, 0.2)', text: '#34d399' },
-    warning: { bg: 'rgba(245, 158, 11, 0.1)', border: 'rgba(245, 158, 11, 0.2)', text: '#fbbf24' },
-    danger: { bg: 'rgba(239, 68, 68, 0.1)', border: 'rgba(239, 68, 68, 0.2)', text: '#f87171' },
-    accent: { bg: 'rgba(6, 182, 212, 0.1)', border: 'rgba(6, 182, 212, 0.2)', text: '#22d3ee' },
-    purple: { bg: 'rgba(139, 92, 246, 0.1)', border: 'rgba(139, 92, 246, 0.2)', text: '#a78bfa' },
+    primary: { gradient: 'linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(108, 92, 231, 0.05))', border: 'rgba(108, 92, 231, 0.2)', text: '#a29bfe', glow: 'rgba(108, 92, 231, 0.15)' },
+    success: { gradient: 'linear-gradient(135deg, rgba(0, 184, 148, 0.15), rgba(0, 184, 148, 0.05))', border: 'rgba(0, 184, 148, 0.2)', text: '#55efc4', glow: 'rgba(0, 184, 148, 0.15)' },
+    warning: { gradient: 'linear-gradient(135deg, rgba(253, 203, 110, 0.15), rgba(253, 203, 110, 0.05))', border: 'rgba(253, 203, 110, 0.2)', text: '#fdcb6e', glow: 'rgba(253, 203, 110, 0.15)' },
+    danger: { gradient: 'linear-gradient(135deg, rgba(255, 118, 117, 0.15), rgba(255, 118, 117, 0.05))', border: 'rgba(255, 118, 117, 0.2)', text: '#ff7675', glow: 'rgba(255, 118, 117, 0.15)' },
+    accent: { gradient: 'linear-gradient(135deg, rgba(0, 206, 201, 0.15), rgba(0, 206, 201, 0.05))', border: 'rgba(0, 206, 201, 0.2)', text: '#00cec9', glow: 'rgba(0, 206, 201, 0.15)' },
+    purple: { gradient: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05))', border: 'rgba(139, 92, 246, 0.2)', text: '#a78bfa', glow: 'rgba(139, 92, 246, 0.15)' },
   };
 
   const c = colorMap[color] || colorMap.primary;
 
   return (
     <div
-      className="glass-card"
+      className="neu-card"
       style={{
         padding: '1.5rem',
         animationDelay: `${delay}ms`,
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Subtle gradient overlay */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '3px',
+        background: `linear-gradient(90deg, ${c.text}, transparent)`,
+        opacity: 0.6,
+        borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
+      }} />
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
         <div>
-          <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             {label}
           </p>
-          <p style={{ fontSize: '2rem', fontWeight: 700, color: c.text, lineHeight: 1 }}>
+          <p style={{ fontSize: '2rem', fontWeight: 800, color: c.text, lineHeight: 1, letterSpacing: '-0.02em' }}>
             {value}
           </p>
         </div>
@@ -31,12 +44,13 @@ const StatCard = ({ label, value, icon, color = 'primary', delay = 0 }) => {
           width: '2.75rem',
           height: '2.75rem',
           borderRadius: 'var(--radius-md)',
-          background: c.bg,
+          background: c.gradient,
           border: `1px solid ${c.border}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           color: c.text,
+          boxShadow: `0 4px 12px ${c.glow}`,
         }}>
           {icon}
         </div>
