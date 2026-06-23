@@ -71,7 +71,9 @@ const Navbar = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 4rem;
+          min-height: 4rem;
+          height: auto;
+          padding: 0.5rem 1.5rem;
           gap: 2rem;
         }
         .navbar-brand {
@@ -161,6 +163,29 @@ const Navbar = () => {
         @media (max-width: 768px) {
           .navbar-username { display: none; }
           .navbar-link span { display: none; }
+          .navbar-container {
+            gap: 1rem;
+            padding: 0.5rem 1rem;
+          }
+        }
+        @media (max-width: 480px) {
+          .navbar-container {
+            gap: 0.5rem;
+          }
+          .navbar-logo {
+            width: 2rem;
+            height: 2rem;
+          }
+          .navbar-logo svg {
+            width: 1rem;
+            height: 1rem;
+          }
+          .navbar-link {
+            padding: 0.5rem 0.75rem;
+          }
+        }
+        @media (max-width: 400px) {
+          .navbar-title { display: none; }
         }
       `}</style>
     </nav>

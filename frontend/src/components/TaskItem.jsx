@@ -30,10 +30,11 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
       }}
       id={`task-item-${task.id}`}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+      <div className="task-item-inner">
         {/* Complete checkbox */}
         <button
           onClick={() => onStatusChange(task.id, task.status === 'COMPLETED' ? 'PENDING' : 'COMPLETED')}
+          className="task-item-checkbox"
           style={{
             width: '1.375rem',
             height: '1.375rem',
@@ -48,7 +49,6 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            flexShrink: 0,
             transition: 'all 0.25s',
             boxShadow: task.status === 'COMPLETED'
               ? '0 2px 8px rgba(0, 184, 148, 0.3)'
@@ -65,7 +65,7 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
         </button>
 
         {/* Content */}
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="task-item-content">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
             <span style={{
               fontWeight: 600,
@@ -98,14 +98,9 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
 
         {/* Due date */}
         {task.dueDate && (
-          <span style={{
-            fontSize: '0.8125rem',
+          <span className="task-item-due" style={{
             color: isOverdue ? 'var(--color-danger)' : 'var(--text-muted)',
             fontWeight: isOverdue ? 700 : 500,
-            whiteSpace: 'nowrap',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.25rem',
           }}>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
@@ -115,7 +110,7 @@ const TaskItem = ({ task, onEdit, onDelete, onStatusChange }) => {
         )}
 
         {/* Actions */}
-        <div style={{ display: 'flex', gap: '0.25rem', flexShrink: 0 }}>
+        <div className="task-item-actions">
           <button
             className="btn btn-icon btn-secondary"
             onClick={() => onEdit(task)}

@@ -201,7 +201,7 @@ const ProjectDetailPage = () => {
                   {project.description}
                 </p>
               )}
-              <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
+              <div style={{ display: 'flex', gap: '0.5rem 1.5rem', fontSize: '0.8125rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                 <span>
                   <strong style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Start:</strong> {formatDate(project.startDate)}
                 </span>

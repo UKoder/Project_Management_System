@@ -586,13 +586,13 @@ body {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
   gap: 1.25rem;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
   gap: 1.25rem;
 }
 
@@ -652,4 +652,130 @@ body {
 /* Tooltip */
 .tooltip-wrapper {
   position: relative;
+}
+
+/* ═══════════════════════════════════════
+   MOBILE RESPONSIVE UTILITIES
+   ═══════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  main.container {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .page-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+  }
+  
+  .search-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .search-filter-bar > * {
+    width: 100% !important;
+  }
+}
+
+/* Task Item Responsive styles */
+.task-item-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.task-item-checkbox {
+  flex-shrink: 0;
+}
+
+.task-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-item-due {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.task-item-actions {
+  display: flex;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .task-item-inner {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .task-item-content {
+    flex: 1 1 calc(100% - 3rem); /* take remaining width next to checkbox */
+  }
+  
+  .task-item-due {
+    order: 3;
+    padding-left: 2.375rem; /* align with text start */
+    flex: 1 1 auto;
+    font-size: 0.75rem;
+  }
+  
+  .task-item-actions {
+    order: 4;
+    margin-left: auto;
+  }
+}
+
+/* Project Card Responsive styles */
+.project-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.project-card-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-card-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .project-card-footer {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .project-card-info {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    width: 100%;
+  }
+  
+  .project-card-actions {
+    margin-left: auto;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 0.25rem;
+  }
 }

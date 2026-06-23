@@ -281,6 +281,14 @@ const RegisterPage = () => {
         .auth-footer a:hover {
           text-decoration: underline;
         }
+        @media (max-width: 480px) {
+          .auth-page {
+            padding: 1rem;
+          }
+          .auth-container {
+            padding: 1.5rem;
+          }
+        }
       `}</style>
     </div>
   );

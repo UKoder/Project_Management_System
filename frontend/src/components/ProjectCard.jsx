@@ -80,16 +80,8 @@ const ProjectCard = ({ project, onEdit, onDelete }) => {
         )}
 
         {/* Meta */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          paddingTop: '1rem',
-          borderTop: '1px solid var(--border-color)',
-          fontSize: '0.8125rem',
-          color: 'var(--text-muted)',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div className="project-card-footer">
+          <div className="project-card-info">
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 11l3 3L22 4" />
@@ -104,7 +96,7 @@ const ProjectCard = ({ project, onEdit, onDelete }) => {
               <span>Created: {formatDate(project.createdAt)}</span>
             )}
           </div>
-          <div style={{ display: 'flex', gap: '0.25rem' }}>
+          <div className="project-card-actions">
             <button
               className="btn btn-icon btn-secondary"
               onClick={() => onEdit(project)}
