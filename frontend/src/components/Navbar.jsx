@@ -26,7 +26,7 @@ const Navbar = () => {
               <path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" />
             </svg>
           </div>
-          <span className="navbar-title">ProjectFlow</span>
+          <span className="navbar-title">AeroPlan</span>
         </Link>
 
         <div className="navbar-links">
@@ -65,7 +65,7 @@ const Navbar = () => {
           top: 0;
           z-index: 40;
           background: var(--neu-surface);
-          box-shadow: 0 4px 16px var(--neu-shadow-dark), 0 1px 0 var(--border-color);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 1px 0 var(--border-color);
         }
         .navbar-container {
           display: flex;
@@ -92,7 +92,7 @@ const Navbar = () => {
           background: var(--gradient-primary);
           border-radius: var(--radius-sm);
           color: white;
-          box-shadow: 0 4px 12px rgba(108, 92, 231, 0.35);
+          box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.25);
         }
         .navbar-logo svg {
           width: 1.15rem;
@@ -126,12 +126,11 @@ const Navbar = () => {
         .navbar-link:hover {
           color: var(--text-primary);
           background: var(--neu-surface-alt);
-          box-shadow: var(--neu-convex-sm);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
         .navbar-link.active {
           color: var(--color-primary-light);
-          background: rgba(108, 92, 231, 0.12);
-          box-shadow: var(--neu-concave-sm);
+          background: rgba(var(--color-primary-rgb), 0.12);
         }
         .navbar-link svg {
           width: 1.125rem;
@@ -153,7 +152,7 @@ const Navbar = () => {
           font-size: 0.8rem;
           font-weight: 700;
           color: white;
-          box-shadow: var(--neu-convex-sm);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
         .navbar-username {
           font-size: 0.875rem;

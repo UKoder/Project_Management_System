@@ -1,11 +1,11 @@
 const StatCard = ({ label, value, icon, color = 'primary', delay = 0 }) => {
   const colorMap = {
-    primary: { gradient: 'linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(108, 92, 231, 0.05))', border: 'rgba(108, 92, 231, 0.2)', text: '#a29bfe', glow: 'rgba(108, 92, 231, 0.15)' },
-    success: { gradient: 'linear-gradient(135deg, rgba(0, 184, 148, 0.15), rgba(0, 184, 148, 0.05))', border: 'rgba(0, 184, 148, 0.2)', text: '#55efc4', glow: 'rgba(0, 184, 148, 0.15)' },
-    warning: { gradient: 'linear-gradient(135deg, rgba(253, 203, 110, 0.15), rgba(253, 203, 110, 0.05))', border: 'rgba(253, 203, 110, 0.2)', text: '#fdcb6e', glow: 'rgba(253, 203, 110, 0.15)' },
-    danger: { gradient: 'linear-gradient(135deg, rgba(255, 118, 117, 0.15), rgba(255, 118, 117, 0.05))', border: 'rgba(255, 118, 117, 0.2)', text: '#ff7675', glow: 'rgba(255, 118, 117, 0.15)' },
-    accent: { gradient: 'linear-gradient(135deg, rgba(0, 206, 201, 0.15), rgba(0, 206, 201, 0.05))', border: 'rgba(0, 206, 201, 0.2)', text: '#00cec9', glow: 'rgba(0, 206, 201, 0.15)' },
-    purple: { gradient: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05))', border: 'rgba(139, 92, 246, 0.2)', text: '#a78bfa', glow: 'rgba(139, 92, 246, 0.15)' },
+    primary: { gradient: 'linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.15), rgba(var(--color-primary-rgb), 0.05))', border: 'rgba(var(--color-primary-rgb), 0.2)', text: 'var(--color-primary-light)', glow: 'rgba(var(--color-primary-rgb), 0.15)' },
+    success: { gradient: 'linear-gradient(135deg, rgba(var(--color-success-rgb), 0.15), rgba(var(--color-success-rgb), 0.05))', border: 'rgba(var(--color-success-rgb), 0.2)', text: 'var(--color-success-light)', glow: 'rgba(var(--color-success-rgb), 0.15)' },
+    warning: { gradient: 'linear-gradient(135deg, rgba(var(--color-warning-rgb), 0.15), rgba(var(--color-warning-rgb), 0.05))', border: 'rgba(var(--color-warning-rgb), 0.2)', text: 'var(--color-warning-light)', glow: 'rgba(var(--color-warning-rgb), 0.15)' },
+    danger: { gradient: 'linear-gradient(135deg, rgba(var(--color-danger-rgb), 0.15), rgba(var(--color-danger-rgb), 0.05))', border: 'rgba(var(--color-danger-rgb), 0.2)', text: 'var(--color-danger-light)', glow: 'rgba(var(--color-danger-rgb), 0.15)' },
+    accent: { gradient: 'linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.15), rgba(var(--color-accent-rgb), 0.05))', border: 'rgba(var(--color-accent-rgb), 0.2)', text: 'var(--color-accent-light)', glow: 'rgba(var(--color-accent-rgb), 0.15)' },
+    purple: { gradient: 'linear-gradient(135deg, rgba(var(--color-secondary-rgb), 0.15), rgba(var(--color-secondary-rgb), 0.05))', border: 'rgba(var(--color-secondary-rgb), 0.2)', text: 'var(--color-secondary-light)', glow: 'rgba(var(--color-secondary-rgb), 0.15)' },
   };
 
   const c = colorMap[color] || colorMap.primary;

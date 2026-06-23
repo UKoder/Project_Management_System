@@ -56,7 +56,7 @@ const RegisterPage = () => {
             </svg>
           </div>
           <h1>Create account</h1>
-          <p>Get started with ProjectFlow</p>
+          <p>Get started with AeroPlan</p>
         </div>
 
         {error && (
@@ -207,8 +207,8 @@ const RegisterPage = () => {
           justify-content: center;
           padding: 2rem;
           background:
-            radial-gradient(ellipse at 30% 20%, rgba(108, 92, 231, 0.08) 0%, transparent 50%),
-            radial-gradient(ellipse at 70% 80%, rgba(0, 206, 201, 0.05) 0%, transparent 50%),
+            radial-gradient(ellipse at 30% 20%, rgba(var(--color-primary-rgb), 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 80%, rgba(var(--color-accent-rgb), 0.05) 0%, transparent 50%),
             var(--neu-bg);
         }
         .auth-container {
@@ -246,7 +246,7 @@ const RegisterPage = () => {
           background: var(--gradient-primary);
           border-radius: var(--radius-md);
           color: white;
-          box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+          box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.35);
         }
         .auth-logo svg {
           width: 1.5rem;

@@ -1,6 +1,6 @@
-# ProjectFlow — Project Management System
+# AeroPlan — Project Management System
 
-A full-stack project management application built with React, Node.js, Express, MySQL, and Prisma ORM. Manage your projects and tasks with a modern, responsive dark-themed UI.
+A full-stack project management application built with React, Node.js, Express, MySQL, and Prisma ORM. Manage your projects and tasks with a modern, responsive minimalist dark-themed UI.
 
 ## Features
 
